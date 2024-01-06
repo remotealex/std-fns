@@ -13,14 +13,14 @@ For example, have a read of this typically trivial "beginner" funtion.
 How many ways to invoke functions can you count?
 
 ```ts
-function greet(lastName: string) {
-  const lastNameLowerCase = lastName.toLowerCase();
+function greet(name: string) {
+  const nameLowerCase = name.toLowerCase();
 
-  if (lastNameLowerCase.includes("world")) {
+  if (nameLowerCase.includes("world")) {
     return "Hello, Mr. Predictable";
   }
 
-  return "Hello, " + lastName;
+  return "Hello, " + name;
 }
 
 console.log(greet("Mr. World"));
@@ -34,32 +34,32 @@ standard way to call functions and pass in arguments. This tiny lib aims to make
 Using `std-fns` we can make this code _much_ easier to read and explain:
 
 ```ts
-function greet(lastName: string) {
-  const lastNameLowerCase = Str.toLowerCase(lastName);
+function greet(name: string) {
+  const nameLowerCase = Str.toLowerCase(name);
 
-  if (Str.includes(lastNameLowerCase, "world")) {
+  if (Str.includes(nameLowerCase, "world")) {
     return "Hello, Mr. Predictable";
   }
 
-  return Str.concat("Hello, ", lastName);
+  return Str.concat("Hello, ", name);
 }
 
 console.log(greet("Mr. World"));
 ```
 
-And once you understand and can use partical application, you can make it even nicer:
+And once you understand and can use partial application, you can make it even nicer:
 
 ```ts
 const includesWorld = Str.includes(__, "world");
 
-function greet(lastName: string) {
-  const lastNameLowerCase = Str.toLowerCase(lastName);
+function greet(name: string) {
+  const nameLowerCase = Str.toLowerCase(name);
 
-  if (includesWorld(lastNameLowerCase)) {
+  if (includesWorld(nameLowerCase)) {
     return "Hello, Mr. Predictable";
   }
 
-  return Str.concat("Hello, ", lastName);
+  return Str.concat("Hello, ", name);
 }
 
 console.log(greet("Mr. World"));
