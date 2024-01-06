@@ -1,5 +1,7 @@
 import { __, curry } from "ramda";
 
+// Strings:
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
 const Str = {
   at: curry((i: number, s: string) => s.at(i)),
   charAt: curry((i: number, s: string) => s.charAt(i)),
@@ -15,15 +17,18 @@ const Str = {
   includes: curry((seedStr: string, searchStr: string, position: number = 0) =>
     seedStr.includes(searchStr, position),
   ),
+  //... Others still TODO here but added toLowerCase for demo
+  toLowerCase: (s: string) => s.toLowerCase(),
 };
 
-// Simple demos
+// -- Simple demos:
 
 console.log(Str.concat("Hello", " ", "World")); // Hello World
 console.log(Str.endsWith("Hello World", "World")); // true
 console.log(Str.endsWith("Hello World", "Wor", 9)); // true
 
-// Curry demos
+// -- Curry demos:
+
 const firstChar = Str.at(0); // Example of partial application
 const charOfHello = Str.at(__, "hello"); // Example of Ramda arg placeholders
 
@@ -32,3 +37,5 @@ console.log(charOfHello(0)); // h
 
 console.log(Str.includes("Hello World")("World")); // true
 console.log(Str.includes("Hello World")("Hello", 1)); // false
+
+console.log("inc?", Str.includes("Hello World", "World"));
