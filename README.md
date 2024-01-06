@@ -6,7 +6,7 @@ The functions available here all use a common (and more importantly simple) func
 
 ## Why?
 
-Teaching JavaScript as a first language is really hard because we have many ways to call functions\*.
+Teaching JavaScript as a first language is really hard because we have many ways to call functions[^1].
 
 For example, have read of this typically trivial "beginner" funtion.
 
@@ -27,7 +27,7 @@ console.log(greet("World"));
 Answer: Three! Try explaining that to a n00b... It's much easier to write/read code which has a single,
 standard way to call functions and pass in arguments. This tiny lib aims to make JS/TS easier for us all.
 
-- Functions, instance and static methods will be used interchangeable here
+[^1]: Functions, instance and static methods will be used interchangeable here
 
 ## Test drive
 
