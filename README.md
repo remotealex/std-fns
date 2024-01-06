@@ -6,13 +6,13 @@ The functions available here all use a common (and more importantly simple) func
 
 ## Why?
 
-Teaching JavaScript as a first language is really hard because we have many ways to call functions[^1].
+Teaching JavaScript as a first language is really hard because we have many ways to call functions [^1].
 
-For example, have read of this typically trivial "beginner" funtion.
+For example, have a read of this typically trivial "beginner" funtion.
 
 How many ways to invoke functions can you count?
 
-```
+```js
 function greet(lastName: string) {
     if (lastName.includes('World')) {
       return 'Hello, Mr. Predictable';
