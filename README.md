@@ -1,3 +1,5 @@
+> ⚠️ After exploring existing solutions, I believe [Ramda](https://ramdajs.com/) covers most of what I _personally_ needed from this lib. I believe this idea should be thought about more in JS-land though, so keeping the repo here in the hope that someone will land on it and learn something!
+
 # std-fns
 
 This is an MVP of an idea I've had for a while about standardising the JS standard lib syntax.
