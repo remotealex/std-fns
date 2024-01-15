@@ -1,18 +1,21 @@
-> ⚠️ After exploring existing solutions, I believe [Ramda](https://ramdajs.com/) covers most of what I _personally_ needed from this lib. I believe this idea should be thought about more in JS-land though, so keeping the repo here in the hope that someone will land on it and learn something!
-
 # std-fns
 
-This is an MVP of an idea I've had for a while about standardising the JS standard lib syntax.
-
-The functions available here all use a common (and more importantly simple) function syntax.
+A **very** simple set of (fixed arity) functions which are transparent
+wrappers around the standard Javascript
+[built-in object operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference).
 
 ## Why?
 
-Teaching JavaScript as a first language is really hard because we have many ways to call functions [^1].
+To write software with Javascript you rely on functions. Unfortunately,
+many of the utilities built in to the Javascript language are housed as
+[instance methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Method_definitions)
+which as a Javascript developer yourself, you will seldom write.
+
+This means that your code will be littered with different function call syntax.
 
 For example, have a read of this typically trivial "beginner" funtion.
 
-How many ways to invoke functions can you count?
+How many ways to invoke a function[^1] can you count?
 
 ```ts
 function greet(name: string) {
@@ -28,8 +31,9 @@ function greet(name: string) {
 console.log(greet("Mr. World"));
 ```
 
-Answer: Three! Try explaining that to a n00b... It's much easier to write/read code which has a single,
-standard way to call functions and pass in arguments. This tiny lib aims to make JS/TS easier for us all.
+Answer: Three! It's much easier to write/read code which has a single,
+standard way to call functions and pass in arguments.
+This tiny suite of tools aims to make Javacsript easier for us all.
 
 [^1]: Functions, instance and static methods will be used interchangeable here
 
@@ -46,13 +50,15 @@ function greet(name: string) {
   return Str.concat("Hello, ", name);
 }
 
-console.log(greet("Mr. World"));
+console.log(greet("Mr. World")); // "Hello, Mr. Predictable"
 ```
 
-And once you understand and can use partial application, you can make it even nicer:
+It also makes parameter partial application much easier:
 
 ```ts
-const includesWorld = Str.includes(__, "world");
+import R from "ramda";
+
+const includesWorld = R.partialRight(Str.includes, ["world"]);
 
 function greet(name: string) {
   const nameLowerCase = Str.toLowerCase(name);
@@ -64,7 +70,7 @@ function greet(name: string) {
   return Str.concat("Hello, ", name);
 }
 
-console.log(greet("Mr. World"));
+console.log(greet("Mr. World")); // "Hello, Mr. Predictable"
 ```
 
 ## Test drive
